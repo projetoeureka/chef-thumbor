@@ -50,5 +50,5 @@ directory node['thumbor']['options']['RESULT_STORAGE_FILE_STORAGE_ROOT_PATH'] do
   group node['thumbor']['group']
   mode '0755'
   recursive true
-  only_if { node['thumbor']['options']['STORAGE'] == 'thumbor.storages.file_storage' }
+  only_if { node['thumbor']['options']['STORAGE'] == 'thumbor.result_storages.file_storage' }
 end
