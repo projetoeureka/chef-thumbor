@@ -543,19 +543,16 @@ Simple:
 }
 ```
 
-Generate a secret and disable unsafe-mode:
+Generate a secret and disable unsafe-mode and enable Result Storage:
 ```json
-{
+{  
   "name":"my_node",
-  "run_list": [
-    "recipe[thumbor]"
-  ],
-  "default_attributes": {
-    "thumbor": {
-      "key": "This-Is-A-Secret-Key",
-      "options": {
-        "ALLOW_UNSAFE_URL": false
-      }
+  "thumbor": {
+    "key": "secretkey",
+    "options": {
+      "ALLOW_UNSAFE_URL": false,
+      "RESULT_STORAGE": "thumbor.result_storages.file_storage",
+      "RESULT_STORAGE_FILE_STORAGE_ROOT_PATH": "/var/lib/thumbor/result-storage"
     }
   }
 }
